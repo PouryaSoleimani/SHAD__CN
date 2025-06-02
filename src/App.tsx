@@ -2,6 +2,8 @@ import "./index.css";
 import { Button } from "./components/ui/button";
 import FormComponent from "./FormComponent";
 import FormComponent2 from "./FormComponent2";
+import { Toaster, toast } from 'sonner'
+
 
 export function App() {
   return (
@@ -17,6 +19,7 @@ export function App() {
         </div>
         <div>
           <FormComponent2 />
+          <Toaster richColors />
         </div>
       </main>
     </section>
