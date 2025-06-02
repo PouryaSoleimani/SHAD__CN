@@ -3,6 +3,7 @@ import { Button } from "./components/ui/button";
 import FormComponent from "./FormComponent";
 import FormComponent2 from "./FormComponent2";
 import { Toaster, toast } from 'sonner'
+import Modal from "./Modal";
 
 
 export function App() {
@@ -18,8 +19,9 @@ export function App() {
           <Button variant="blue">BLUE</Button>
         </div>
         <div>
-          <FormComponent2 />
-          <Toaster richColors />
+          {/* <FormComponent2 /> */}
+          <Toaster className="bg-black border-2 border-white font-bold" />
+          <Modal />
         </div>
       </main>
     </section>

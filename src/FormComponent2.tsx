@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTheme } from "next-themes"
-import { toast, Toaster } from 'sonner';
+import { toast } from 'sonner';
 
 const FormComponent2 = () => {
 
@@ -57,7 +57,6 @@ const FormComponent2 = () => {
                 <Button variant='submit' type='submit' className='mt-6'>SEND</Button>
                 <Button variant='submit' type='button' className='mt-6' onClick={sonnerHandler}>SONNER</Button>
             </form>
-            <Toaster />
         </div>
     )
 }
