@@ -3,6 +3,7 @@ import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader,
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@radix-ui/react-separator"
+import { CheckboxDemo } from "../modules/CheckBoxes"
 
 export function SignUpForm() {
     return (
@@ -33,6 +34,7 @@ export function SignUpForm() {
                             <Input id="password" type="password" required />
                         </div>
                     </div>
+                    <CheckboxDemo />
                 </form>
             </CardContent>
             <CardFooter className="flex-col gap-2">

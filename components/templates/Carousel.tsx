@@ -12,9 +12,9 @@ export function CarouselDemo() {
             <CarouselContent>
                 {Array.from({ length: 5 }).map((_, index) => (
                     <div className="p-1" key={index}>
-                        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                        <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                             <div className="p-1">
-                                <Card className="w-32">
+                                <Card>
                                     <CardContent className="flex aspect-square items-center justify-center px-8">
                                         <span className="text-3xl font-semibold">{index + 1}</span>
                                     </CardContent>
