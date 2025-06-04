@@ -41,7 +41,7 @@ export function SignUpForm() {
                 <Button variant="default" className="w-full">Login with Google</Button>
             </CardFooter>
             <div className="p-4">
-            <CheckboxDemo />
+                <CheckboxDemo />
             </div>
         </Card>
     )
