@@ -41,7 +41,7 @@ export function Accordions() {
                     </p>
                     <p className="text-neutral-400">
                         Our hassle-free return process includes free return shipping and
-                        full refunds processed within <b className="text-siz-primary">48 hours</b> of receiving the returned
+                        <b className="text-custom-purple">full refunds</b> processed within <b className="text-siz-primary">48 hours</b> of receiving the returned
                         item.
                     </p>
                 </AccordionContent>

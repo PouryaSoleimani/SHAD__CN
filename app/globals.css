@@ -45,6 +45,7 @@
   --color-siz-primary: var(--siz-primary);
   --color-siz-secondary: var(--siz-secondary);
   --color-pourya: var(--pourya);
+  --color-custom-purple: var(--custom-purple);
 }
 
 :root {
@@ -74,6 +75,7 @@
   --siz-primary: oklch(0.577 0.245 27.325);
   --siz-secondary: oklch(0.6 0.118 184.704);
   --pourya: oklch(1.2 6.428 90.12);
+  --custom-purple: oklch(1.2 6.428 290.12);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
