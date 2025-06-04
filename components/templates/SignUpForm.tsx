@@ -10,7 +10,7 @@ export function SignUpForm() {
             <CardHeader className="w-full">
                 <CardTitle className="w-full font-black bg-white/30 text-white p-2.5 rounded-md">Login to your account</CardTitle>
                 <CardAction>
-                    <Button variant="submit" className="p-3 font-bold">Sign Up</Button>
+                    <Button variant="default" className="p-3 font-bold">Sign Up</Button>
                 </CardAction>
                 <CardDescription className="w-full  text-neutral-300 whitespace-nowrap tracking-tighter">
                     Enter your email below to login to your account
@@ -36,8 +36,8 @@ export function SignUpForm() {
                 </form>
             </CardContent>
             <CardFooter className="flex-col gap-2">
-                <Button type="submit" variant="submit" className="w-full">Login</Button>
-                <Button variant="submitSecondary" className="w-full">Login with Google</Button>
+                <Button type="submit" variant="default" className="w-full">Login</Button>
+                <Button variant="default" className="w-full">Login with Google</Button>
             </CardFooter>
         </Card>
     )
