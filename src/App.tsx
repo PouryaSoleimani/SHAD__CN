@@ -4,6 +4,7 @@ import FormComponent from "./FormComponent";
 import FormComponent2 from "./FormComponent2";
 import { Toaster, toast } from 'sonner'
 import Modal from "./Modal";
+import { SampleCard } from "./SampleCard";
 
 
 export function App() {
@@ -23,6 +24,8 @@ export function App() {
           <Toaster className="bg-black border-2 border-white font-bold" />
           <Modal />
         </div>
+        <hr />
+        <SampleCard />
       </main>
     </section>
   );
