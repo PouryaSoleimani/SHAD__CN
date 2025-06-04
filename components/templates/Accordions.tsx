@@ -35,13 +35,13 @@ export function Accordions() {
                 <AccordionTrigger className="text-xl font-bold">Return Policy</AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
                     <p className="text-neutral-400">
-                        We stand behind our products with a comprehensive 30-day return
-                        policy. If you&apos;re not completely satisfied, simply return the
+                        <b className="text-siz-secondary"> We stand behind our products</b> with a comprehensive 30-day return
+                        policy. If you&apos;re not <b className="text-pourya">completely satisfied</b>, <b className="text-tg">simply return</b> the
                         item in its original condition.
                     </p>
                     <p className="text-neutral-400">
                         Our hassle-free return process includes free return shipping and
-                        full refunds processed within 48 hours of receiving the returned
+                        full refunds processed within <b className="text-siz-primary">48 hours</b> of receiving the returned
                         item.
                     </p>
                 </AccordionContent>
