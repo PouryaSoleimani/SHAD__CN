@@ -21,13 +21,13 @@ export function Accordions() {
                 <AccordionTrigger className="text-xl font-bold">Shipping Details</AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
                     <p className="text-neutral-400">
-                        We offer worldwide shipping <span className="text-chart-5">through</span> trusted courier partners.
+                        We offer worldwide shipping <span className="text-tg">through</span> trusted courier partners.
                         Standard delivery takes 3-5 business days, while express shipping
                         ensures delivery within 1-2 business days.
                     </p>
                     <p className="text-neutral-400">
-                        All orders are carefully packaged and fully insured. Track your
-                        shipment in real-time through our dedicated tracking portal.
+                        <b className="text-tg">All orders</b> are <b className="text-siz-primary">carefully</b> packaged and fully insured. <b className="text-siz-secondary">Track</b> your
+                        shipment in real-time through our dedicated <i className="text-tg">tracking portal</i>
                     </p>
                 </AccordionContent>
             </AccordionItem>
