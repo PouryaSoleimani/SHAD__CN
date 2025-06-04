@@ -34,13 +34,15 @@ export function SignUpForm() {
                             <Input id="password" type="password" required />
                         </div>
                     </div>
-                    <CheckboxDemo />
                 </form>
             </CardContent>
             <CardFooter className="flex-col gap-2">
                 <Button type="submit" variant="default" className="w-full">Login</Button>
                 <Button variant="default" className="w-full">Login with Google</Button>
             </CardFooter>
+            <div className="p-4">
+            <CheckboxDemo />
+            </div>
         </Card>
     )
 }
