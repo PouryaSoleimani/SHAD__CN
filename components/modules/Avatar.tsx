@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage, } from "@/components/ui/avatar"
 
 export function AvatarDemo() {
     return (
-        <div className="flex flex-row flex-wrap items-center gap-12">
+        <div className="flex flex-row flex-wrap items-center gap-2 justify-end w-full">
             <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
