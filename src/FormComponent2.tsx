@@ -7,6 +7,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTheme } from "next-themes"
 import { toast } from 'sonner';
+import AlertComponent from './AlertComponent'
 
 const FormComponent2 = () => {
 
@@ -56,6 +57,9 @@ const FormComponent2 = () => {
                 {methods.formState.errors.nickname && <span className='text-red-800 text-xs tracking-tight '>{methods.formState.errors.nickname.message}</span>}
                 <Button variant='submit' type='submit' className='mt-6'>SEND</Button>
                 <Button variant='submit' type='button' className='mt-6' onClick={sonnerHandler}>SONNER</Button>
+                <div className='flex flex-col bg-red-300/30 gap-y-6 p-6 rounded border border-red-800'>
+                    <AlertComponent />
+                </div>
             </form>
         </div>
     )

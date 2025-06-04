@@ -16,7 +16,7 @@ const Modal = () => {
             <DialogTrigger asChild>
                 <Button variant="default" className="border text-3xl font-bold !p-10">ورود</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-lg sm:p-8 bg-zinc-900/50 !backdrop-blur-2xl">
+            <DialogContent className="sm:max-w-lg sm:p-8 bg-zinc-900 z-50 !backdrop-blur-2xl">
                 <DialogHeader>
                     <DialogTitle>ورود به حساب کاربری</DialogTitle>
                     <DialogDescription>لطفاً اطلاعات خود را وارد کنید</DialogDescription>
