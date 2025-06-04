@@ -6,17 +6,17 @@ import { Separator } from "@radix-ui/react-separator"
 
 export function SignUpForm() {
     return (
-        <Card className="w-full max-w-sm bg-white/5 backdrop-blur-sm">
+        <Card className="w-full max-w-sm  backdrop-blur-sm">
             <CardHeader className="w-full">
-                <CardTitle className="w-full font-black bg-white/30 text-white p-2.5 rounded-md">Login to your account</CardTitle>
+                <CardTitle className="w-full font-black p-2.5 rounded-md">Login to your account</CardTitle>
                 <CardAction>
                     <Button variant="default" className="p-3 font-bold">Sign Up</Button>
                 </CardAction>
-                <CardDescription className="w-full  text-neutral-300 whitespace-nowrap tracking-tighter">
+                <CardDescription className="w-full whitespace-nowrap tracking-tighter">
                     Enter your email below to login to your account
                 </CardDescription>
             </CardHeader>
-            <Separator className="w-full bg-white h-px" />
+            <Separator className="w-full  h-px" />
 
             <CardContent>
                 <form>
