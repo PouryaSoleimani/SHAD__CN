@@ -21,7 +21,7 @@ export const columns: ColumnDef<Payment>[] = [
         header: "Title",
         cell: ({ row }) => {
             const title: string = row.getValue("title")
-            return <h2 className="border-r w-fit">{title.slice(0, 20).toUpperCase()}</h2>
+            return <h2 className="border-r w-fit font-black text-center">{title.slice(0, 20).toUpperCase()}</h2>
         }
     },
     {
@@ -29,7 +29,7 @@ export const columns: ColumnDef<Payment>[] = [
         header: () => <div className="text-center">Price</div>,
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("price"))
-            const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "EUR", }).format(amount)
+            const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", currencyDisplay: "symbol" }).format(amount)
             return <div className="font-extrabold bg-emerald-600 text-white p-1 text-center rounded w-20 mx-auto">{formatted}</div>
         }
     },
