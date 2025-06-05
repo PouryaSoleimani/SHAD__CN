@@ -52,14 +52,14 @@ export const columns: ColumnDef<Payment>[] = [
         }
     },
     {
-        id: "actions",
+        id: "actions", // ROW ACTIONS
         header: "ACTIONS",
         cell: ({ row }) => {
             const payment = row.original
 
             return (
                 <DropdownMenu>
-
+                    
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" className="h-8 w-8 p-0" >
                             <span className="sr-only">Open menu</span>
