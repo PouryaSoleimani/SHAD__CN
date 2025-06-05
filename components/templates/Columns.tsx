@@ -42,9 +42,11 @@ export const columns: ColumnDef<Payment>[] = [
         accessorKey: "id",
         header: ({ column }) => {
             return (
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pl-1">
                     ID
-                    <Button variant="outline" size="icon" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex justify-center items-center px-4 py-1"> <ArrowUpDown /> </Button>
+                    <Button variant="outline" size="icon" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex justify-center items-center px-4 py-1 h-7">
+                        <ArrowUpDown />
+                    </Button>
                 </div>
             )
         },
@@ -52,10 +54,10 @@ export const columns: ColumnDef<Payment>[] = [
     },
     {
         accessorKey: "title",
-        header: "Title",
+        header: () => { return <h2 className="text-start pl-1.5 tracking-wider">Title</h2> },
         cell: ({ row }) => {
             const title: string = row.getValue("title")
-            return <h2 className="border-r w-fit font-black text-center">{title.slice(0, 20).toUpperCase()}</h2>
+            return <h2 className="font-black !text-start">{title.slice(0, 20).toUpperCase()}</h2>
         }
     },
     {
