@@ -1,5 +1,6 @@
 "use client"
-import { ColumnDef, flexRender, getCoreRowModel, useReactTable, getPaginationRowModel, } from "@tanstack/react-table"
+import * as React from "react"
+import { ColumnDef, flexRender, getCoreRowModel, useReactTable, getPaginationRowModel, getSortedRowModel, SortingState, } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { Button } from "../ui/button"
 
@@ -10,8 +11,14 @@ interface DataTableProps<TData, TValue> {
 }
 
 export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TData, TValue>) {
-
-    const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(), initialState: { pagination: { pageSize: 5, }, }, })
+    const [sorting, setSorting] = React.useState<SortingState>([])
+    const table = useReactTable({
+        data, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(),
+        initialState: { pagination: { pageSize: 5, }, },
+        onSortingChange: setSorting,
+        getSortedRowModel: getSortedRowModel(),
+        state: { sorting },
+    })
 
     return (
         <div>
@@ -39,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             table.getRowModel().rows.map((row) => (
                                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"} className="nth-of-type-[odd]:bg-neutral-900 nth-of-type-[even]:bg-neutral-950 hover:!bg-black duration-500" >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="px-4 py-2">
+                                        <TableCell key={cell.id} className="px-4 py-2 font-black">
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
@@ -57,10 +64,12 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                 </Table>
 
             </div>
+
             <div id="PAGINTAION___CONTAINER" className="flex items-center justify-end space-x-2 py-4">
                 <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} >Previous</Button>
                 <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()} >Next</Button>
             </div>
+
         </div>
     )
 }

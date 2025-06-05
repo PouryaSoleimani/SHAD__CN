@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 import Image from "next/image";
-import { Bookmark, Copy, History, MoreHorizontal, Star } from "lucide-react"
+import { Bookmark, Copy, History, MoreHorizontal, Star, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 
@@ -15,9 +15,18 @@ export type Payment = {
 }
 
 export const columns: ColumnDef<Payment>[] = [
+
     {
         accessorKey: "id",
-        header: "ID",
+        header: ({ column }) => {
+            return (
+                <div className="flex items-center justify-between">
+                    ID
+                    <Button variant="outline" size="icon" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex justify-center items-center px-4 py-1"> <ArrowUpDown /> </Button>
+                </div>
+            )
+        },
+
     },
     {
         accessorKey: "title",
@@ -59,7 +68,7 @@ export const columns: ColumnDef<Payment>[] = [
 
             return (
                 <DropdownMenu>
-                    
+
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" className="h-8 w-8 p-0" >
                             <span className="sr-only">Open menu</span>
