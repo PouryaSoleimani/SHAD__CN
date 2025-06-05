@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Persian/Desktop/CODE/SHAD__CN/shad___cn/app/alert-dialog/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst AlertDialogPage = () => {\r\n    return (\r\n        <section id=\"HOME____PAGE\" className=\"flex flex-col items-center justify-center w-screen h-screen bg-black\">\r\n            <div className='border p-5 mx-auto text-white rounded-lg'>\r\n\r\n            </div>\r\n        </section>\r\n    )\r\n}\r\n\r\nexport default AlertDialogPage"],"names":[],"mappings":";;;;;AAEA,MAAM,kBAAkB;IACpB,qBACI,6WAAC;QAAQ,IAAG;QAAe,WAAU;kBACjC,cAAA,6WAAC;YAAI,WAAU;;;;;;;;;;;AAK3B;uCAEe","debugId":null}}]
+}
