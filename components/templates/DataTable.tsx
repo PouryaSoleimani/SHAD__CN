@@ -14,15 +14,17 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+    const [rowSelection, setRowSelection] = React.useState({})
     const table = useReactTable({
         data, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(),
         initialState: { pagination: { pageSize: 5, }, },
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
-        state: { sorting, columnFilters, columnVisibility, },
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
         onColumnVisibilityChange: setColumnVisibility,
+        onRowSelectionChange: setRowSelection,
+        state: { sorting, columnFilters, columnVisibility, rowSelection, },
     })
 
     return (
@@ -34,6 +36,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                     onChange={(event) => table.getColumn("title")?.setFilterValue(event.target.value)}
                     className="max-w-sm"
                 />
+                <Button variant="outline" className="ml-auto" onClick={() => console.info(table.getFilteredSelectedRowModel())}> LOG SELECTED </Button>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="ml-auto">
@@ -56,6 +59,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
+
             </div>
             <div id="TABLE___CONTAINER" className="rounded-md border-4 p-3 bg-neutral-900">
 
