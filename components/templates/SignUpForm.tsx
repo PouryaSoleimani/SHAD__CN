@@ -9,6 +9,7 @@ import { ComboboxPopover } from "../modules/ComboBox"
 export function SignUpForm() {
     return (
         <Card className="w-full max-w-sm  backdrop-blur-sm">
+
             <CardHeader className="w-full">
                 <CardTitle className="w-full font-black p-2.5 rounded-md">Login to your account</CardTitle>
                 <CardAction>
@@ -18,7 +19,8 @@ export function SignUpForm() {
                     Enter your email below to login to your account
                 </CardDescription>
             </CardHeader>
-            <Separator className="w-full  h-px" />
+
+            <Separator className="w-full  h-px bg-foreground" />
 
             <CardContent>
                 <form>
@@ -40,13 +42,17 @@ export function SignUpForm() {
                     </div>
                 </form>
             </CardContent>
+
+
+            <div className="p-4">
+                <CheckboxDemo />
+            </div>
+
             <CardFooter className="flex-col gap-2">
                 <Button type="submit" variant="default" className="w-full">Login</Button>
                 <Button variant="default" className="w-full">Login with Google</Button>
             </CardFooter>
-            <div className="p-4">
-                <CheckboxDemo />
-            </div>
+
         </Card>
     )
 }

@@ -4,7 +4,6 @@ import { SignUpForm } from "@/components/templates/SignUpForm";
 export default function Home() {
   return (
     <section id="HOME____PAGE" className="flex flex-col items-center justify-center w-screen h-screen">
-
       <SignUpForm />
     </section>
   );
