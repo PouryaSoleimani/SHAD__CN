@@ -80,9 +80,7 @@ export const columns: ColumnDef<Payment>[] = [
     {
         accessorKey: "image",
         header: "Product Image",
-        cell: ({ row }) => {
-            return <Image src={row.getValue("image")} alt="product image" width={100} height={100} className="!size-16 rounded mx-auto" />
-        }
+        cell: ({ row }) => { return <Image src={row.getValue("image")} alt="product image" width={100} height={100} className="!size-16 rounded mx-auto" /> }
     },
     {
         id: "actions", // ROW ACTIONS

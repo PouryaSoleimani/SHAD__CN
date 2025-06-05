@@ -32,6 +32,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
 
             <div id="FILTER___AND__BUTTONS" className="flex items-center py-4 justify-between">
                 <Input
+                    id="FILTER____INPUT"
                     placeholder="Filter products..."
                     value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
                     onChange={(event) => table.getColumn("title")?.setFilterValue(event.target.value)}
@@ -39,7 +40,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                 />
 
                 <DropdownMenu>
-                    <div className="justify-self-end flex gap-2">
+                    <div id="DROPDOWN____TRIGGER" className="justify-self-end flex gap-2">
                         <Button variant="outline" className="ml-auto" onClick={() => console.info(table.getFilteredSelectedRowModel())}> Log Selecteds </Button>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" className="ml-auto">
@@ -53,7 +54,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                                 return (
                                     <DropdownMenuCheckboxItem
                                         key={column.id}
-                                        className="capitalize"
+                                        className="capitalize hover:bg-black"
                                         checked={column.getIsVisible()}
                                         onCheckedChange={(value) => column.toggleVisibility(!!value)}
                                     >
@@ -63,13 +64,10 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             })}
                     </DropdownMenuContent>
                 </DropdownMenu>
-
             </div>
 
             <div id="TABLE_________" className="rounded-md border-4 p-3 bg-neutral-900">
-
                 <Table>
-
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -103,9 +101,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             </TableRow>
                         )}
                     </TableBody>
-
                 </Table>
-
             </div>
 
             <div id="PAGINTAION________" className="flex items-center justify-end space-x-2 py-4">
