@@ -29,20 +29,24 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
 
     return (
         <div>
-            <div className="flex items-center py-4">
+
+            <div id="FILTER___AND__BUTTONS" className="flex items-center py-4 justify-between">
                 <Input
                     placeholder="Filter products..."
                     value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
                     onChange={(event) => table.getColumn("title")?.setFilterValue(event.target.value)}
                     className="max-w-sm"
                 />
-                <Button variant="outline" className="ml-auto" onClick={() => console.info(table.getFilteredSelectedRowModel())}> LOG SELECTED </Button>
+
                 <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto">
-                            Columns
-                        </Button>
-                    </DropdownMenuTrigger>
+                    <div className="justify-self-end flex gap-2">
+                        <Button variant="outline" className="ml-auto" onClick={() => console.info(table.getFilteredSelectedRowModel())}> Log Selecteds </Button>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="ml-auto">
+                                Columns
+                            </Button>
+                        </DropdownMenuTrigger>
+                    </div>
                     <DropdownMenuContent align="end">
                         {table.getAllColumns().filter((column) => column.getCanHide()).map(
                             (column) => {
@@ -61,7 +65,8 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                 </DropdownMenu>
 
             </div>
-            <div id="TABLE___CONTAINER" className="rounded-md border-4 p-3 bg-neutral-900">
+
+            <div id="TABLE_________" className="rounded-md border-4 p-3 bg-neutral-900">
 
                 <Table>
 
@@ -70,7 +75,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="w-fit nth-of-type-[1]:bg-red-600/30 nth-of-type-[2]:bg-blue-600/30 nth-of-type-[3]:bg-emerald-600/30 nth-of-type-[4]:bg-violet-600/30 nth-of-type-[5]:bg-yellow-500/30 text-white font-bold bg-neutral-950 divide-x-2 divide-white border-b-4 border-neutral-500">
+                                        <TableHead key={header.id} className="w-fit nth-of-type-[1]:bg-red-600/30 nth-of-type-[1]:rounded-tl-lg nth-last-[1]:rounded-tr-lg nth-of-type-[2]:bg-blue-600/30 nth-of-type-[3]:bg-emerald-600/30 nth-of-type-[4]:bg-violet-600/30 nth-of-type-[5]:bg-yellow-500/30 text-white font-bold bg-neutral-950 divide-x-2 divide-white border-b-4 border-neutral-500">
                                             {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                                         </TableHead>
                                     )
@@ -103,7 +108,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
 
             </div>
 
-            <div id="PAGINTAION___CONTAINER" className="flex items-center justify-end space-x-2 py-4">
+            <div id="PAGINTAION________" className="flex items-center justify-end space-x-2 py-4">
                 <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} >Previous</Button>
                 <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()} >Next</Button>
             </div>
