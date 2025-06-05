@@ -20,11 +20,13 @@ export const columns: ColumnDef<Payment>[] = [
     {
         id: "select",
         header: ({ table }) => (
-            <Checkbox
-                checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
-                onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
-            />
+            <div className="flex items-center justify-start-safe pl-2">
+                <Checkbox
+                    checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
+                    onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+                    aria-label="Select all"
+                />
+            </div>
         ),
         cell: ({ row }) => (
             <Checkbox
@@ -36,7 +38,6 @@ export const columns: ColumnDef<Payment>[] = [
         enableSorting: false,
         enableHiding: false,
     },
-
     {
         accessorKey: "id",
         header: ({ column }) => {
