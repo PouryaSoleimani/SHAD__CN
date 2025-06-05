@@ -103,6 +103,7 @@ export const columns: ColumnDef<Payment>[] = [
 
                         <DropdownMenuContent align="end">
                             <DropdownMenuLabel>Options</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
                             <DropdownMenuItem onClick={() => console.info(row.original)}><Bookmark /> Save </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id.toString())}><Copy /> Copy product ID</DropdownMenuItem>
                             <DropdownMenuSeparator />
@@ -115,4 +116,5 @@ export const columns: ColumnDef<Payment>[] = [
             )
         },
     },
+
 ]
