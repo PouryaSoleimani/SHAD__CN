@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@radix-ui/react-separator"
 import { CheckboxDemo } from "../modules/CheckBoxes"
+import { ComboboxPopover } from "../modules/ComboBox"
 
 export function SignUpForm() {
     return (
@@ -32,6 +33,9 @@ export function SignUpForm() {
                                 <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline"   >          Forgot your password?      </a>
                             </div>
                             <Input id="password" type="password" required />
+                        </div>
+                        <div>
+                            <ComboboxPopover />
                         </div>
                     </div>
                 </form>
