@@ -66,15 +66,15 @@ export const columns: ColumnDef<Payment>[] = [
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("price"))
             const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", currencyDisplay: "symbol" }).format(amount)
-            return <div className="font-extrabold bg-emerald-600 text-white p-1 text-center rounded w-20 mx-auto">{formatted}</div>
+            return <div className="font-extrabold bg-neutral-600 text-white p-1 text-center rounded w-16 mx-auto">{formatted}</div>
         }
     },
     {
         accessorKey: "category",
-        header: "Category",
+        header: () => { return <div className="!text-start pl-1.5">Category</div> },
         cell: ({ row }) => {
             const category: string = row.getValue("category")
-            return <div className="uppercase bg-stone-800 p-1 rounded w-fit font-black">{category}</div>
+            return <div className="uppercase bg-stone-800 p-1.5 rounded w-fit font-black">{category}</div>
         },
     },
     {
@@ -91,25 +91,27 @@ export const columns: ColumnDef<Payment>[] = [
             const payment = row.original
 
             return (
-                <DropdownMenu>
+                <div className="flex items-center justify-center">
+                    <DropdownMenu>
 
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0" >
-                            <span className="sr-only">Open menu</span>
-                            <MoreHorizontal className="h-8 w-8" />
-                        </Button>
-                    </DropdownMenuTrigger>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0" >
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal className="h-8 w-8" />
+                            </Button>
+                        </DropdownMenuTrigger>
 
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Options</DropdownMenuLabel>
-                        <DropdownMenuItem onClick={() => console.info(row.original)}><Bookmark /> Save </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id.toString())}><Copy /> Copy product ID</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem><Star />View Ratings</DropdownMenuItem>
-                        <DropdownMenuItem><History />View Price History</DropdownMenuItem>
-                    </DropdownMenuContent>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>Options</DropdownMenuLabel>
+                            <DropdownMenuItem onClick={() => console.info(row.original)}><Bookmark /> Save </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id.toString())}><Copy /> Copy product ID</DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem><Star />View Ratings</DropdownMenuItem>
+                            <DropdownMenuItem><History />View Price History</DropdownMenuItem>
+                        </DropdownMenuContent>
 
-                </DropdownMenu>
+                    </DropdownMenu>
+                </div>
             )
         },
     },
