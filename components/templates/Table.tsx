@@ -101,9 +101,7 @@ export const columns: ColumnDef<Payment>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(payment.id)}
-                        >
+                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
                             Copy payment ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
@@ -118,11 +116,8 @@ export const columns: ColumnDef<Payment>[] = [
 
 export function DataTableDemo() {
     const [sorting, setSorting] = React.useState<SortingState>([])
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-        []
-    )
-    const [columnVisibility, setColumnVisibility] =
-        React.useState<VisibilityState>({})
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = React.useState({})
 
     const table = useReactTable({
@@ -150,9 +145,7 @@ export function DataTableDemo() {
                 <Input
                     placeholder="Filter emails..."
                     value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) =>
-                        table.getColumn("email")?.setFilterValue(event.target.value)
-                    }
+                    onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
                     className="max-w-sm"
                 />
                 <DropdownMenu>
@@ -182,20 +175,19 @@ export function DataTableDemo() {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
-            <div className="rounded-md border">
+
+            <div className="rounded-md border-2 px-2">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id}>
+                            <TableRow key={headerGroup.id} className="px-4 border-r">
                                 {headerGroup.headers.map((header) => {
                                     return (
                                         <TableHead key={header.id}>
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                    header.column.columnDef.header,
-                                                    header.getContext()
-                                                )}
+                                            {header.isPlaceholder ? null : flexRender(
+                                                header.column.columnDef.header,
+                                                header.getContext()
+                                            )}
                                         </TableHead>
                                     )
                                 })}
@@ -232,6 +224,7 @@ export function DataTableDemo() {
                     </TableBody>
                 </Table>
             </div>
+
             <div className="flex items-center justify-end space-x-2 py-4">
                 <div className="text-muted-foreground flex-1 text-sm">
                     {table.getFilteredSelectedRowModel().rows.length} of{" "}
@@ -256,6 +249,7 @@ export function DataTableDemo() {
                     </Button>
                 </div>
             </div>
+
         </div>
     )
 }
