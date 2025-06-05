@@ -1,10 +1,10 @@
 "use client"
 import * as React from "react"
-import { ColumnDef, ColumnFiltersState, flexRender, getCoreRowModel, useReactTable, getPaginationRowModel, getSortedRowModel, getFilteredRowModel, SortingState, } from "@tanstack/react-table"
+import { ColumnDef, ColumnFiltersState, flexRender, getCoreRowModel, useReactTable, getPaginationRowModel, getSortedRowModel, getFilteredRowModel, SortingState, VisibilityState, } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { Button } from "../ui/button"
 import { Input } from "@/components/ui/input"
-
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
@@ -13,19 +13,56 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
     const table = useReactTable({
         data, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(),
         initialState: { pagination: { pageSize: 5, }, },
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
-        state: { sorting, columnFilters, },
+        state: { sorting, columnFilters, columnVisibility, },
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
+        onColumnVisibilityChange: setColumnVisibility,
     })
 
     return (
         <div>
-
+            <div className="flex items-center py-4">
+                <Input
+                    placeholder="Filter products..."
+                    value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) => table.getColumn("title")?.setFilterValue(event.target.value)}
+                    className="max-w-sm"
+                />
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="ml-auto">
+                            Columns
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                        {table
+                            .getAllColumns()
+                            .filter(
+                                (column) => column.getCanHide()
+                            )
+                            .map((column) => {
+                                return (
+                                    <DropdownMenuCheckboxItem
+                                        key={column.id}
+                                        className="capitalize"
+                                        checked={column.getIsVisible()}
+                                        onCheckedChange={(value) =>
+                                            column.toggleVisibility(!!value)
+                                        }
+                                    >
+                                        {column.id}
+                                    </DropdownMenuCheckboxItem>
+                                )
+                            })}
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
             <div id="TABLE___CONTAINER" className="rounded-md border-4 p-3 bg-neutral-900">
 
                 <Table>
