@@ -75,7 +75,7 @@ export function DataTable<TData, TValue>({ columns, data, }: DataTableProps<TDat
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="w-fit nth-of-type-[1]:bg-red-600/30 nth-of-type-[1]:rounded-tl-lg nth-last-[1]:rounded-tr-lg nth-of-type-[2]:bg-blue-600/30 nth-of-type-[3]:bg-emerald-600/30 nth-of-type-[4]:bg-violet-600/30 nth-of-type-[5]:bg-yellow-500/30 text-white font-bold bg-neutral-950 divide-x-2 divide-white border-b-4 border-neutral-500">
+                                        <TableHead key={header.id} className="w-fit nth-of-type-[1]:bg-red-600/30 nth-of-type-[1]:rounded-tl-lg nth-last-[1]:rounded-tr-lg nth-of-type-[2]:bg-blue-600/30 nth-of-type-[3]:bg-emerald-600/30 nth-of-type-[4]:bg-violet-600/30 nth-of-type-[5]:bg-yellow-500/30 nth-of-type-[6]:bg-rose-600/30 text-white font-bold bg-neutral-950 divide-x-2 divide-white border-b-4 border-neutral-500">
                                             {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                                         </TableHead>
                                     )
