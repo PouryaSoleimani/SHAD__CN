@@ -7,7 +7,7 @@ import { CheckboxDemo } from "../modules/CheckBoxes"
 import { ComboboxPopover } from "../modules/ComboBox"
 
 export function SignUpForm() {
-    return (
+    return ( // CARD HEADER + CARD CONTENT + CARD FOOTER
         <Card className="w-full max-w-sm  backdrop-blur-sm">
 
             <CardHeader className="w-full">
