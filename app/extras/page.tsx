@@ -40,7 +40,7 @@ const ExtrasPage = () => {
                     </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>
-            {/* BADGES */}
+            {/*  */}
             <div className="flex flex-col items-center gap-2 mt-5">
                 <div className="flex w-full flex-wrap gap-2">
                     <Badge>Badge</Badge>

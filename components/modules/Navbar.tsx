@@ -9,24 +9,22 @@ import Navigation from './Navigation';
 import Image from 'next/image';
 
 
-const Navbar = () => {
+const NavbarComponent = () => {
     const router = useRouter()
     return (
-        <>
-            <div className="w-full border-b-2 border-neutral-300 h-16 flex justify-between p-4 bg-neutral-700">
-                <Image src="/next.svg" width={200} height={30} alt='next' />
-                <Navigation />
-                <div className='flex'>
-                    <AvatarDemo />
-                    <div className='flex mx-3'>
-                        <Button className="" onClick={() => router.back()}><ChevronLeft /></Button>
-                        <Button className="mx-2" onClick={() => router.push('/')}><Home /></Button>
-                        <ThemeToggler />
-                    </div>
+        <div className="w-full border-b-2 border-neutral-300 h-16 flex justify-between p-4 sticky top-0 z-50 bg-neutral-800">
+            <Image src="/next.svg" width={200} height={30} alt='next' />
+            <Navigation />
+            <div className='flex'>
+                <AvatarDemo />
+                <div className='flex mx-3'>
+                    <Button className="" onClick={() => router.back()}><ChevronLeft /></Button>
+                    <Button className="mx-2" onClick={() => router.push('/')}><Home /></Button>
+                    <ThemeToggler />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
-export default Navbar
+export default NavbarComponent;
