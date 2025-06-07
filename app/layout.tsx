@@ -24,8 +24,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}   >
+        <Navbar />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange  >
-          <Navbar />
           {children}
         </ThemeProvider>
       </body>
