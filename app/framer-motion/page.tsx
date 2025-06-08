@@ -1,8 +1,12 @@
 import React from 'react'
+import { motion } from "motion/react"
+
 
 const FramerMotionPage = () => {
     return (
-        <div>FramerMotionPage</div>
+        <div>
+            <motion.div animate={{ scale: 1.2 }} />
+        </div>
     )
 }
 
