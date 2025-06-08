@@ -25,7 +25,7 @@ const FramerMotionPage = () => {
 
             <button
                 id="TOGGLE___BUTTON"
-                className="toggle-container"
+                className="toggle-container mt-6"
                 style={{ ...Container, justifyContent: "flex-" + (isOn ? "start" : "end"), backgroundColor: "#fff" }}
                 onClick={toggleSwitch}
             >
