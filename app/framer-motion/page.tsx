@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
 import * as motion from "motion/react-client"
-import { useScroll } from "motion/react";
+import { AnimatePresence, useScroll } from "motion/react";
 import { useState } from "react"
+
 
 const FramerMotionPage = () => {
     const { scrollYProgress } = useScroll()
     const [isOn, setIsOn] = useState(false)
+    const [show, setShow] = useState(false)
     const toggleSwitch = () => setIsOn(!isOn)
     return (
         <div className="p-10 relative top-0 left-0">
@@ -37,6 +39,12 @@ const FramerMotionPage = () => {
                 />
             </button>
 
+            <AnimatePresence initial={false}>
+                <div className="flex flex-col m-10 duration-500">
+                    {show ? <motion.div key="box" animate={{ opacity: 1, scale: 1, }} exit={{ opacity: 0, scale: 0 }} transition={{ duration: 3000 }} className="size-32 bg-red-600 rounded-md mt-10" /> : null}
+                    <motion.button whileTap={{ scale: 0.95 }} className="toggle-button w-fit bg-emerald-900 p-3 rounded" onClick={() => setShow(!show)}>TOGGLE</motion.button>
+                </div>
+            </AnimatePresence>
 
             {/* H-SCREEN DIV **************************************************************************************************************************/}
             <div className="h-screen"></div>
