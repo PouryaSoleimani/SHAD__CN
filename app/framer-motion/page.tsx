@@ -1,3 +1,4 @@
+// ^ FRAMER MOTION PAGE ============================================================================================================================
 "use client";
 import React from "react";
 import * as motion from "motion/react-client"
