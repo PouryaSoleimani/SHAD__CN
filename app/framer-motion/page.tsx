@@ -40,6 +40,7 @@ const FramerMotionPage = () => {
                 />
             </button>
 
+
             <AnimatePresence initial={false}>
                 <div className="flex flex-col m-10 duration-500">
                     {show ? <motion.div key="box" animate={{ opacity: 1, scale: 1, }} exit={{ opacity: 0, scale: 0 }} transition={{ duration: 3000 }} className="size-32 bg-red-600 rounded-md mt-10" /> : null}
@@ -60,6 +61,7 @@ const FramerMotionPage = () => {
                 whileTap={{ scale: 0.8 }}
                 whileHover={{ scale: 1.1 }}
                 className="size-32 bg-blue-500 mx-10 rounded-md" />
+            <motion.div className="bg-white rounded-full size-24" initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.5 }} transition={{ duration: 0.5 }} />
         </div>
     );
 };
